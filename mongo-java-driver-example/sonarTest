@@ -15,7 +15,9 @@ pipeline {
             agent any
             steps {
               withSonarQubeEnv('sonar-mongo') {
+	      	dir(project_path){
                 sh 'mvn clean package sonar:sonar'
+		}
               }
             }
           }
